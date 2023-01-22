@@ -1,0 +1,56 @@
+:root {
+  --black: #000;
+  --dark-purple: #560A86;
+  --pink: #F148FB;
+  --light-purple: #7122FA;
+  --cyan: #83EEFF;
+  --dark-blue: #00218A;
+  --medium-blue: #535EEB;
+  --background-color: #0B283D;
+}
+
+body {
+  background-color: rgb(17, 120, 146);
+}
+#grid-container{
+ display:flex;
+ flex-direction: column;
+ justify-content: center;
+ flex-wrap: nowrap;
+}
+.parent {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tileImage{
+  width: 40%;
+  height: 40%; 
+  margin: 5px;
+}
+
+.canvas{
+    width:100vw;
+    height:100vh;
+}
+
+.grid-row{
+  display:inline-block;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+button {
+  display: inline-block;
+  padding: 12px 24px; /* Add some padding to the button */
+  border-radius: 4px; /* Give the button rounded corners */
+  font-size: 18px; /* Increase the font size of the button text */
+  text-align: center; /* Center the button text */
+  text-decoration: none; /* Remove the underline from the button text */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+  transition: background-color 0.3s ease; /* Add a transition effect to the background color */
+  }
+  button:hover {
+  background-color: var(--cyan);
+  }
