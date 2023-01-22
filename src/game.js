@@ -70,72 +70,64 @@ function deleteChild() {
 }
 
 function display() {
-  let newArray = localStorage.getItem("new array");
-  JSON.parse(newArray);
+  let tileArray = localStorage.getItem("new array");
+  tileArray = JSON.parse(tileArray);
   deleteChild();
   const grid = document.getElementById("grid-container");
-    let margin = 0;
-    const br = document.createElement("br");
-    for (let i = 0; i < 3; i++) {
-      const newRow = document.createElement("div");
-      newRow.classList.add("grid-row");
-      for (let j = 0; j < 3; j++) {
-        let img = document.createElement("img");
-        img.src = tileArray[i][j].src; //tiles[margin].src;
-        const newTile = document.createElement("span");
-        newTile.classList.add("tileImage");
-        newTile.setAttribute('id', 'tile' + margin.toString());
-        newTile.appendChild(img);
-        newTile.addEventListener("click", function(){moveTile(i,j)});
-        newRow.appendChild(newTile);
-        margin++;
-      }
-      grid.appendChild(newRow);
+  let margin = 0;
+  const br = document.createElement("br");
+  for (let i = 0; i < 3; i++) {
+    const newRow = document.createElement("div");
+    newRow.classList.add("grid-row");
+    for (let j = 0; j < 3; j++) {
+      let img = document.createElement("img");
+      img.src = tileArray[i][j].src; //tiles[margin].src;
+      const newTile = document.createElement("span");
+      newTile.classList.add("tileImage");
+      newTile.setAttribute("id", "tile" + margin.toString());
+      newTile.appendChild(img);
+      newTile.addEventListener("click", function () {
+        moveTile(i, j);
+      });
+      newRow.appendChild(newTile);
+      margin++;
     }
+    grid.appendChild(newRow);
+  }
 }
 
-function swapTile(first, second, array) {
-  console.log("swap");
-  const temp = array[first.row][first.col].id;
-
-  array[first.row][first.col].id = array[second.row][second.col].id;
-  array[second.row][second.col].id = temp;
-  display(array);
+function swapTile(firstRow, firstCol, secondRow, secondCol, array) {
+  const temp = array[firstRow][firstCol].id;
+  const tempSRC = array[firstRow][firstCol].src;
+  array[firstRow][firstCol].id = array[secondRow][secondCol].id;
+  array[secondRow][secondCol].id = temp;
+  array[firstRow][firstCol].src = array[secondRow][secondCol].src;
+  array[secondRow][secondCol].src = tempSRC;
+  
 }
 
 function moveTile(row, col) {
-  console.log(row + " " + col + " ");
   let newArray = localStorage.getItem("new array");
   newArray = JSON.parse(newArray);
-  console.log(newArray);
 
-  let WhiteSpaceRow;
-  let WhiteSpaceCol;
-  //console.log("tile "+row,col)
-  if (row < newArray.length - 1 && isWhiteSpace(row + 1, col, newArray)) {
-    WhiteSpaceRow = row + 1;
-    swapTile({ row, col }, { WhiteSpaceRow, col }, newArray);
-  } else if (row > 0 && isWhiteSpace(row - 1, col, newArray)) {
-    WhiteSpaceRow = row - 1;
-    swapTile({ row, col }, { WhiteSpaceRow, col }, newArray);
+  console.log("empty tile id: " + EMPTY_TILE_ID);
+  console.log(newArray);
+  if (row < newArray.length - 1 && newArray[row + 1][col].id == EMPTY_TILE_ID) {
+    swapTile(row, col, row + 1, col, newArray);
+  } else if (row > 0 && newArray[row - 1][col].id == EMPTY_TILE_ID) {
+    swapTile(row, col, row - 1, col, newArray);
   } else if (
-    isWhiteSpace(row, col + 1, newArray) &&
-    col < newArray.length - 1
+    col < newArray.length - 1 && newArray[row][col + 1].id == EMPTY_TILE_ID 
+    
   ) {
-    WhiteSpaceCol = col + 1;
-    swapTile({ row, col }, { row, WhiteSpaceCol }, newArray);
-  } else if (col > 0 && isWhiteSpace(row, col - 1, newArray)) {
-    WhiteSpaceCol = col - 1;
-    swapTile({ row, col }, { row, WhiteSpaceCol }, newArray);
+    swapTile(row, col, row, col + 1, newArray);
+  } else if (col > 0 && newArray[row][col - 1].id == EMPTY_TILE_ID) {
+    swapTile(row, col, row, col - 1, newArray);
   } else {
     console.log("no");
   }
   localStorage.setItem("new array", JSON.stringify(newArray));
-}
-
-function isWhiteSpace(row, col, array) {
-   console.log("verification "+ row,col)
-  return array[row][col].id === EMPTY_TILE_ID;
+  display();
 }
 
 function checkWin() {
