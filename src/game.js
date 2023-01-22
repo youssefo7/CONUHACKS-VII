@@ -42,10 +42,18 @@ function shuffleArray(number, arrayPNGS) {
       newArray[i][j] = originalArray[i][j];
     }
   }
-
-  fisherYatesOuter(newArray);
-  fisherYatesInner(newArray);
-  localStorage.setItem("new array", JSON.stringify(newArray));
+  let flatArr = newArray.flat();
+  // shuffle elements of 1D array
+  for (let i = flatArr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [flatArr[i], flatArr[j]] = [flatArr[j], flatArr[i]];
+  }
+  // map 1D array back to 2D array
+  let shuffledArr = [];
+  for (let i = 0; i < flatArr.length; i += 3) {
+    shuffledArr.push(flatArr.slice(i, i + 3));
+  }
+  localStorage.setItem("new array", JSON.stringify(shuffledArr));
   localStorage.setItem("original array", JSON.stringify(originalArray));
   let item = localStorage.getItem("original array");
   item = JSON.parse(item);

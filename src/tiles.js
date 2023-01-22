@@ -19,7 +19,7 @@ function previewImage(event) {
 
 function deleteImage(event) {
   var image_x = document.getElementById("preview");
-  image_x.parentNode.removeChild(image_x);
+  image_x.parentNode.removeChild[0];
 }
 
 function test(e){
@@ -29,7 +29,6 @@ function test(e){
 
 function deleteChild() {
   var e = document.getElementById("grid-container");
-  
   //e.firstElementChild can be used.
   var child = e.lastElementChild; 
   while (child) {
