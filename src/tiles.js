@@ -99,7 +99,7 @@ function handleClick(e) {
       grid.appendChild(newRow);
     }
   };
-  deleteImage(e);
+  deleteImage();
 }
 
 //let gridItems = document.querySelectorAll(".grid-item");

@@ -9,15 +9,125 @@
   --background-color: #0B283D;
 }
 
-body {
+body {  
   background-color: rgb(17, 120, 146);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('wallpaper5.jpg');
 }
+
+input{
+  background-color: #f032fa84;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+#image_input{
+  text-decoration: none;
+}
+
+button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: rgba(0, 255, 255, 0.39);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    var(--light-purple),
+    #00ffd59d,
+    #002bff,
+    #7a00ff,
+    #ff00c88b,
+    #ff00c862
+  );
+  
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 255, 0.382);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+
+h2{
+  font-size: 45px;
+}
+
+h3{
+  font-size: 25px;
+}
+
+.neonText {
+  color:whitesmoke;
+  text-shadow:
+  0 0 4px darkblue,
+  0 0 11px rgb(42, 143, 176),
+  0 0 12px #f032fa,
+  0 0 10px #f032fa,
+  0 0 20px #f032fa,
+  0 0 210px #f032fa,
+  0 0 200px #f032fa,
+  0 0 200px #f032fa;
+}
+
+
+
 #grid-container{
  display:flex;
  flex-direction: column;
  justify-content: center;
  flex-wrap: nowrap;
 }
+
+#preview{
+  border-radius: 40px;
+
+}
+
 .parent {
   display: flex;
   justify-content: space-around;
@@ -37,10 +147,30 @@ body {
 .grid-row{
   display:inline-block;
 }
+
+
 .buttons {
   display: flex;
   justify-content: center;
 }
+
+.gridChoice{
+  color: #560A86;
+}
+
+#timeElapsed {
+  display: inline-block;
+  background-color: rgba(0, 145, 255, 0.504);
+  padding: 12px 24px; /* Add some padding to the button */
+  border-radius: 4px; /* Give the button rounded corners */
+  font-size: 18px; /* Increase the font size of the button text */
+  text-align: center; /* Center the button text */
+  text-decoration: none; /* Remove the underline from the button text */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+  margin: 4px;  
+  cursor: default;
+}
+
 button {
   display: inline-block;
   padding: 12px 24px; /* Add some padding to the button */
@@ -49,13 +179,9 @@ button {
   text-align: center; /* Center the button text */
   text-decoration: none; /* Remove the underline from the button text */
   cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
-  transition: background-color 0.3s ease; /* Add a transition effect to the background color */
-  }
-  button:hover {
-  background-color: var(--cyan);
-  }
+  margin: 4px;  
+}
 
-  #preview {
-    width: 50px;
-    height: 50px
-  }
+button:hover {
+background-color: var(--cyan);
+}
