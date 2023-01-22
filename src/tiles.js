@@ -1,5 +1,13 @@
 const preview = document.getElementById("preview");
 const gridContainer = document.getElementById("grid-container");
+setInterval(updateTimer, 100);
+
+function updateTimer(){
+    timer = Date.now() - startTime;
+    let timeElapsed = document.getElementById("timeElapsed");
+    timeElapsed.innerHTML = (timer/1000).toFixed(2) + " seconds";
+}
+timeElapsed.innerHTML = "0.00 seconds";
 
 function previewImage(event) {
   var preview = document.getElementById("preview");
@@ -34,6 +42,8 @@ function deleteChild() {
 }
 
 function handleClick(e) {
+  startTime = Date.now();
+  timer = 0.00;
   e.preventDefault(); //to prevent the form from submitting
   if(gridContainer.children.length > 1){
     deleteChild();
@@ -96,6 +106,7 @@ function handleClick(e) {
     }
   };
   deleteImage();
+  updateTimer();
 }
 
 //let gridItems = document.querySelectorAll(".grid-item");
