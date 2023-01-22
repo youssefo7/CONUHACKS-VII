@@ -1,21 +1,20 @@
+//const { gracefulify } = require("graceful-fs");
+
 const preview = document.getElementById("preview");
 const gridContainer = document.getElementById("grid-container");
-setInterval(updateTimer, 100);
-
-function updateTimer(){
-    timer = Date.now() - startTime;
-    let timeElapsed = document.getElementById("timeElapsed");
-    timeElapsed.innerHTML = (timer/1000).toFixed(2) + " seconds";
-}
-timeElapsed.innerHTML = "0.00 seconds";
 
 function previewImage(event) {
+  var image_x = document.getElementById("repreview");
+  image_x.hidden = true;
   var preview = document.getElementById("preview");
   var file = event.target.files[0];
   var reader = new FileReader();
 
   reader.onloadend = function () {
     preview.src = reader.result;
+    const shuffle = document.getElementById("shuffle");
+    shuffle.removeEventListener("click", generatePicture)
+    shuffle.addEventListener("click", handleClick);
   };
 
   if (file) {
@@ -27,31 +26,42 @@ function previewImage(event) {
 
 function deleteImage() {
   var image_x = document.getElementById("preview");
-  image_x.parentNode.removeChild(image_x);
+  image_x.remove()
+  var image_y = document.getElementById("repreview");
+  image_y.remove()
 }
-
 
 function deleteChild() {
   var e = document.getElementById("grid-container");
   //e.firstElementChild can be used.
-  var child = e.lastElementChild; 
+  var child = e.lastElementChild;
   while (child) {
-      e.removeChild(child);
-      child = e.lastElementChild;
+    e.removeChild(child);
+    child = e.lastElementChild;
   }
+}
+function generatePicture(e) {
+  e.preventDefault(); //to prevent the form from submitting
+  const pictures = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png","10.png", "11.png", "12.png"];
+  min = Math.ceil(0);
+    max = Math.floor(pictures.length );
+    const index=Math.floor(Math.random() * (pictures.length+1)) + min
+  afficherJeux(pictures[index]);
 }
 
 function handleClick(e) {
-  startTime = Date.now();
-  timer = 0.00;
   e.preventDefault(); //to prevent the form from submitting
-  if(gridContainer.children.length > 1){
-    deleteChild();
+  afficherJeux(preview.src);
 }
+
+function afficherJeux(src) {
+  if (gridContainer.children.length > 1) {
+    deleteChild();
+  }
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
   const img = new Image();
-  img.src = preview.src;
+  img.src = src;
 
   img.onload = function () {
     canvas.width = img.width;
@@ -82,6 +92,11 @@ function handleClick(e) {
         tiles.push(tileImg);
       }
     }
+    const referenceImage = document.createElement("img");
+    referenceImage.id = "referenceImage";
+    referenceImage.src = src;
+    const parent = document.getElementById("parent");
+    parent.appendChild(referenceImage);
     shuffleArray(3, tiles);
     let tileArray = localStorage.getItem("new array");
     tileArray = JSON.parse(tileArray);
@@ -96,23 +111,35 @@ function handleClick(e) {
         img.src = tileArray[i][j].src; //tiles[margin].src;
         const newTile = document.createElement("span");
         newTile.classList.add("tileImage");
-        newTile.setAttribute('id', 'tile' + margin.toString());
+        newTile.setAttribute("id", "tile" + margin.toString());
         newTile.appendChild(img);
-        newTile.addEventListener("click", function(){moveTile(i,j)});
+        newTile.addEventListener("click", function () {
+          moveTile(i, j);
+        });
         newRow.appendChild(newTile);
         margin++;
       }
       grid.appendChild(newRow);
     }
+   
+  
+    var rules = document.getElementById("rules");
+    rules.hidden = !rules.hidden;
+
+    var rulyes = document.getElementById("rulyes");
+    rulyes.hidden = !rules.hidden;
+    var shuffles = document.getElementById("buttons");
+    shuffles.hidden = !shuffles.hidden;
+    shuffles.remove();
+    var form = document.getElementById("form");
+    form.hidden = !form.hidden;
   };
   deleteImage();
-  updateTimer();
 }
 
 //let gridItems = document.querySelectorAll(".grid-item");
 
 window.onload = function () {
-  const shuffle = document.getElementById("shuffle");
-  shuffle.addEventListener("click", handleClick);
-
+  const shuffle = document.getElementById("shuffle");  
+  shuffle.addEventListener("click", generatePicture);
 };

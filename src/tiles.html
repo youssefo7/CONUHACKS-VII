@@ -8,31 +8,33 @@
 </head>
 
 <body>
-  <h2 class="neonText">Please choose an image then submit to being game! </h2>
+  <div id=""top>
+    <button id="Home" onclick="window.location.reload()" hidden>Home</button>
+    <h2 class="neonText" id="titre">The NeonPossible Game    </h2>
+  </div>
+ 
+  <h3 class="neonText" id="rulyes" >Press shuffle to generate an image or upload your own!</h2>
   <form id="form">
     <label class="neonText" for="image_input">Choose an image:</label>
+    
     <input type="file" id="image_input" name="image_input" accept="image/*" onchange="previewImage(event)">
   </form>
   <br>
   <div id="parent-img">
-    <img id="preview" src="" alt="Image preview">
+    <img id="repreview" src="city.png" alt="Image preview">
+    <img id="preview" src="" alt="">
   </div>
   <div id="puzzle"></div>
-  <div class="parent">
+  <div id="parent">
     <div id="grid-container"></div>
   </div>
 
-  <div class="buttons">
-    <div id="timeElapsed"></div>
+  <div id="buttons">
+  
     <button id="shuffle">Shuffle</button>
   </div>
 
-  <h3 class="neonText">Click on any tile to move it, good luck!</h2>
-    <div class = "gridChoice">
-      <button id= "3x3">3 x 3</button>
-      <button id= "4x4">4 x 4</button>
-      <button id= "5x5">5 x 5</button>
-    </div>
+  <h3 class="neonText" id="rules" hidden>Click on any tile to move it, good luck!</h2>
   <script src="tiles.js"></script>
   <script src="game.js"></script>
 </body>

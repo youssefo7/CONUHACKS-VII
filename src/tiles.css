@@ -14,6 +14,7 @@ body {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   background-image: url('wallpaper5.jpg');
+  backdrop-filter: blur(1.5px);
 }
 
 input{
@@ -24,6 +25,12 @@ input{
 
 #image_input{
   text-decoration: none;
+}
+#referenceImage{
+  flex:1;
+  display:flex;
+  width: 430px;
+  height: 430px; 
 }
 
 button {
@@ -117,6 +124,7 @@ h3{
 
 
 #grid-container{
+  
  display:flex;
  flex-direction: column;
  justify-content: center;
@@ -127,16 +135,25 @@ h3{
   border-radius: 40px;
 
 }
+#repreview{
+  width: 430px;
+  height: 430px; 
+}
 
-.parent {
-  display: flex;
+
+#parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
   justify-content: space-around;
+  
 }
 
 .tileImage img{
-  width: 120px;
-  height: 120px; 
-  margin: 5px;
+  width: 140px;
+  height: 140px; 
+  margin: 4px;
 }
 
 .canvas{
@@ -149,7 +166,7 @@ h3{
 }
 
 
-.buttons {
+#buttons {
   display: flex;
   justify-content: center;
 }
@@ -169,6 +186,17 @@ h3{
   cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
   margin: 4px;  
   cursor: default;
+}
+#Home {
+  float: left;
+
+}
+#top{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 button {
