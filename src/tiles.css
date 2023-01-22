@@ -23,9 +23,9 @@ body {
   justify-content: space-around;
 }
 
-.tileImage{
-  width: 40%;
-  height: 40%; 
+.tileImage img{
+  width: 120px;
+  height: 120px; 
   margin: 5px;
 }
 

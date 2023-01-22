@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Image Puzzle</title>
-    <link rel="stylesheet" href="tiles.css">
 
-  </head>
-  <body>
-    <h2>Please choose an image then submit to being game! </h2>
-    <form id="form">
-      <label for="image_input">Choose an image:</label>
-      <input type="file" id="image_input" name="image_input" accept="image/*" onchange="previewImage(event)">
-      <input id = "sub" type="submit" value="Submit">
-    </form>
-    <br>
-    <img id="preview" src="" alt="Image preview">
-    <div id="puzzle"></div>
-    <div class="parent">
-      <div id="grid-container"></div>
-    </div>
+<head>
+  <title>Image Puzzle</title>
+  <link rel="stylesheet" href="tiles.css">
 
-    <div class = "buttons">
-      <button class= "shuffle">Shuffle</button>
-    </div>
+</head>
 
-    <h2>Click on any tile to move it, good luck!</h2>
-    <script src="tiles.js"></script>
-  </body>
+<body>
+  <h2>Please choose an image then submit to being game! </h2>
+  <form id="form">
+    <label for="image_input">Choose an image:</label>
+    <input type="file" id="image_input" name="image_input" accept="image/*" onchange="previewImage(event)">
+    <input id="sub" type="submit" value="Submit">
+  </form>
+  <br>
+  <img id="preview" src="" alt="Image preview">
+  <div id="puzzle"></div>
+  <div class="parent">
+    <div id="grid-container"></div>
+  </div>
+
+  <div class="buttons">
+    <button class="shuffle">Shuffle</button>
+  </div>
+
+  <h2>Click on any tile to move it, good luck!</h2>
+  <script src="tiles.js"></script>
+  <script src="game.js"></script>
+</body>
+
 </html>
-
