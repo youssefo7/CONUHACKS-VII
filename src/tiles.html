@@ -12,7 +12,6 @@
   <form id="form">
     <label for="image_input">Choose an image:</label>
     <input type="file" id="image_input" name="image_input" accept="image/*" onchange="previewImage(event)">
-    <input id="sub" type="submit" value="Submit">
   </form>
   <br>
   <img id="preview" src="" alt="Image preview">
@@ -22,7 +21,7 @@
   </div>
 
   <div class="buttons">
-    <button class="shuffle">Shuffle</button>
+    <button id="shuffle">Shuffle</button>
   </div>
 
   <h2>Click on any tile to move it, good luck!</h2>

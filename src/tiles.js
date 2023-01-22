@@ -26,8 +26,23 @@ function test(e){
   e.preventDefault();
   console.log("Testing");
 }
+
+function deleteChild() {
+  var e = document.getElementById("grid-container");
+  
+  //e.firstElementChild can be used.
+  var child = e.lastElementChild; 
+  while (child) {
+      e.removeChild(child);
+      child = e.lastElementChild;
+  }
+}
+
 function handleClick(e) {
   e.preventDefault(); //to prevent the form from submitting
+  if(gridContainer.children.length > 1){
+    deleteChild();
+}
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
   const img = new Image();
@@ -91,7 +106,7 @@ function handleClick(e) {
 //let gridItems = document.querySelectorAll(".grid-item");
 
 window.onload = function () {
-  const sub = document.getElementById("sub");
-  sub.addEventListener("click", handleClick);
+  const shuffle = document.getElementById("shuffle");
+  shuffle.addEventListener("click", handleClick);
 
 };
