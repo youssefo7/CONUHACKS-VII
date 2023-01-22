@@ -17,15 +17,11 @@ function previewImage(event) {
   }
 }
 
-function deleteImage(event) {
+function deleteImage() {
   var image_x = document.getElementById("preview");
-  image_x.parentNode.removeChild[0];
+  image_x.parentNode.removeChild(image_x);
 }
 
-function test(e){
-  e.preventDefault();
-  console.log("Testing");
-}
 
 function deleteChild() {
   var e = document.getElementById("grid-container");
