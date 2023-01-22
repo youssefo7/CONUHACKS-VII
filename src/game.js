@@ -52,7 +52,7 @@ function shuffleArray(number, arrayPNGS) {
 }
 
 function swapTile(first, second, array) {
-  //console.log(first + " " + second + " ");
+  console.log("swap ");
   const temp = array[first.row][first.col].id;
 
   array[first.row][first.col].id = array[second.row][second.col].id;
@@ -60,6 +60,7 @@ function swapTile(first, second, array) {
 }
 
 function moveTile(row, col) {
+
   console.log(row + " " + col + " ");
   let newArray = localStorage.getItem("new array");
   newArray = JSON.parse(newArray);
@@ -84,7 +85,7 @@ function moveTile(row, col) {
 
 function isWhiteSpace(row, col, array) {
  // console.log("verification "+ row,col)
-  return array[row][col].id === EMPTY_TILE_ID;
+  //return array[row][col].id === EMPTY_TILE_ID;
 }
 
 function checkWin() {

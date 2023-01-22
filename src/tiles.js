@@ -22,6 +22,10 @@ function deleteImage(event) {
   image_x.parentNode.removeChild(image_x);
 }
 
+function test(e){
+  e.preventDefault();
+  console.log("Testing");
+}
 function handleClick(e) {
   e.preventDefault(); //to prevent the form from submitting
   const canvas = document.createElement("canvas");
@@ -70,11 +74,11 @@ function handleClick(e) {
       for (let j = 0; j < 3; j++) {
         let img = document.createElement("img");
         img.src = tileArray[i][j].src; //tiles[margin].src;
-        img.onclick=moveTile(i,j);
         const newTile = document.createElement("span");
         newTile.classList.add("tileImage");
         newTile.setAttribute('id', 'tile' + margin.toString());
         newTile.appendChild(img);
+        newTile.addEventListener("click", function(){moveTile(i,j)});
         newRow.appendChild(newTile);
         margin++;
       }
@@ -89,14 +93,5 @@ function handleClick(e) {
 window.onload = function () {
   const sub = document.getElementById("sub");
   sub.addEventListener("click", handleClick);
-  const tile0 = document.getElementById("tile0");
-  const tile2 = document.getElementById("tile1");
-  const tile3 = document.getElementById("tile1");
-  const tile4 = document.getElementById("tile1");
-  const tile5 = document.getElementById("tile1");
-  const tile6 = document.getElementById("tile1");
-  const tile7 = document.getElementById("tile1");
-  const tile8 = document.getElementById("tile1");
-  const tile = document.getElementById("tile1");
-  tile0.addEventListener("click", moveTile(1,1));
+
 };
