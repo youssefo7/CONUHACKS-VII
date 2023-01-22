@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# Sliding Tiles-The NeonPossible Game 
+Introducing the ultimate puzzle game for picture enthusiasts! With our game, users can upload their own pictures and put their problem-solving skills to the test by sliding tiles to restore the image to its original form. The unique feature of this game is the ability to upload personal images, making the experience more engaging and personalized. The game is easy to use and can be played on any web browser. It's perfect for anyone looking for a fun and challenging way to improve their cognitive skills. Try it now and see how fast you can solve the puzzle!
+## Inspiration
+We were inspired to create a puzzle game that allows users to upload their own pictures after playing a similar game on my phone and realizing how much more enjoyable it was to solve puzzles with images that were personal to us. We wanted to create a game that would be easy for anyone to use, regardless of their technical skill level, and that would be accessible on any web browser.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What it does
 
-## Available Scripts
+## How we built it
 
-In the project directory, you can run:
+We began by researching different web development technologies and frameworks that would be suitable for building this type of game. We decided to use React as the main framework and JavaScript for the logic of the game. I also used HTML and CSS for the front-end design.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Challenges we ran into
+One of the main challenges we faced while building the game was figuring out how to split the uploaded image into 9 tiles and then randomly shuffle them. We used the canvas element and the Canvas API to draw the image on the canvas and extract the image data. We then used a nested loop to split the image data into 9 tiles and randomly shuffle their coordinates.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Another challenge we faced was handling the user input, specifically the sliding of the tiles. We used JavaScript to add event listeners to the tiles, and then used the logic to check if the move is valid or not.
+## Accomplishments that we're proud of and What we learned
+In the end, we learned a lot about web development and programming concepts, such as working with images and handling user input. We also learned about the importance of good testing and debugging practices, as well as the importance of user feedback in the development process. Overall, we am very proud of the final product, and we believe that it is a fun and engaging game that provides a unique experience for users.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What's next for The NeonPossible Game
+We would like to be able to display a leaderBoard of best times for puzzles, we would want to have options on the dimensions of the puzzle. Eventually we would want to write an algorithm that finds the solution if the user wants to give up, we could also use the solution to display the number of moves it would take to complete the puzzle to make it easier for the player to know how close they are to the solution.
