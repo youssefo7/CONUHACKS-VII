@@ -42,7 +42,8 @@ function deleteChild() {
 }
 function generatePicture(e) {
   e.preventDefault(); //to prevent the form from submitting
-  const pictures = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png","10.png", "11.png", "12.png"];
+  const pictures = ["./src/1.png", "./src/2.png", "./src/3.png", "./src/4.png", "./src/5.png", 
+  "./src/6.png", "./src/7.png", "./src/8.png", "./src/9.png","./src/10.png", "./src/11.png", "./src/12.png"];
   min = Math.ceil(0);
     max = Math.floor(pictures.length );
     const index=Math.floor(Math.random() * (pictures.length+1)) + min
